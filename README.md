@@ -12,6 +12,7 @@ A minimal starting point for applications based on
 * Webpack
 * Heroku
 * CircleCI
+* Rubocop, scss-lint
 
 
 ### Getting Started
