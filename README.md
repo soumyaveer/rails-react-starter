@@ -1,5 +1,9 @@
 # README
 
+[![CircleCI](https://circleci.com/gh/soumyaveer/rails-react-starter.svg?style=svg)](https://circleci.com/gh/soumyaveer/rails-react-starter)
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 A minimal starting point for applications based on
 
 * Rails 5.2
@@ -8,6 +12,14 @@ A minimal starting point for applications based on
 * Webpack
 * Heroku
 * CircleCI
+
+
+### Getting Started
+
+* Copy this project or fork this repo.
+* Search & replace the following:
+  * `rails-react-starter` with `your-app-name`
+  * `RailsReactStarter` with `YourAppName`  
 
 ### Developing
 
