@@ -1,0 +1,11 @@
+{
+  "addons": [
+    "papertrail:choklad",
+    "heroku-postgresql:hobby-dev"
+  ],
+  "env": {
+    "RACK_ENV": "production",
+    "RAILS_ENV": "production"
+  },
+  "name": "rails-react-starter"
+}
