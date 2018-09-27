@@ -11,7 +11,7 @@ A minimal starting point for applications based on
 
 ### Developing
 
-* run `rails db:setup` to setup the database.
+* Run `rails db:setup` to setup the database.
 * Run `foreman start -f Procfile.development` to start the app at http://localhost:5000.
 * Run `heroku apps:create --app <some-app-name>` to create a Heroku app.
 * Run `git push heroku master` to deploy.

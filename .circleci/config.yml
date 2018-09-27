@@ -1,0 +1,43 @@
+---
+version: 2
+jobs:
+  build:
+    working_directory: ~/application
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          DATABASE_URL: "postgres://application@localhost:5432/application"
+          PGHOST: localhost
+          PGUSER: application
+          RAILS_ENV: test
+
+      - image: circleci/postgres:10.3-alpine-postgis-ram
+        environment:
+          POSTGRES_USER: application
+          POSTGRES_DB: application
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
+
+      - type: cache-restore
+        name: Restore bundle cache
+        key: application-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Install Ruby dependencies
+          command: bundle install
+
+      - type: cache-save
+        name: Store bundle cache
+        key: application-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      - run:
+          name: Wait for DB to initialize
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: Run tests
+          command: bundle exec rake
